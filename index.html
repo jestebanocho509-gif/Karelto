@@ -20,6 +20,7 @@
             color: #333;
         }
 
+        /* HEADER */
         header {
             background-color: #0b1f33;
             padding: 35px 20px;
@@ -34,6 +35,7 @@
             letter-spacing: 1px;
         }
 
+        /* NAV */
         nav {
             background-color: #1f3a5f;
             padding: 14px;
@@ -46,12 +48,14 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 16px;
+            cursor: pointer;
         }
 
         nav a:hover {
             color: #ff2f92;
         }
 
+        /* SECCIONES */
         section {
             display: none;
             padding: 50px 20px;
@@ -113,6 +117,17 @@
         .prev { left: 10px; }
         .next { right: 10px; }
 
+        /* SOBRE NOSOTROS */
+        .sobre {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            max-width: 900px;
+            margin: 40px auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
         /* PRODUCTOS */
         .productos {
             display: grid;
@@ -147,23 +162,12 @@
             color: #1f3a5f;
         }
 
-        /* MAPA */
-        .mapa {
-            margin-top: 40px;
-        }
-
-        .mapa iframe {
-            width: 100%;
-            height: 350px;
-            border: none;
-            border-radius: 12px;
-        }
-
+        /* FOOTER GLOBAL */
         footer {
             background-color: #0b1f33;
             color: white;
             text-align: center;
-            padding: 30px 15px;
+            padding: 35px 15px;
             margin-top: 60px;
         }
 
@@ -171,6 +175,15 @@
             color: #25D366;
             text-decoration: none;
             font-weight: bold;
+        }
+
+        .mapa iframe {
+            width: 100%;
+            max-width: 900px;
+            height: 320px;
+            border: 0;
+            border-radius: 12px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -182,13 +195,14 @@
 </header>
 
 <nav>
-    <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
-    <a href="#" onclick="mostrarSeccion('productos')">Productos</a>
+    <a onclick="mostrarSeccion('inicio')">Inicio</a>
+    <a onclick="mostrarSeccion('productos')">Productos</a>
 </nav>
 
 <!-- INICIO -->
 <section id="inicio" class="active">
     <h2>Bienvenidos</h2>
+
     <p style="text-align:center; max-width:850px; margin:auto;">
         Manufacturas Karelto SAS es una empresa colombiana dedicada a la fabricación
         de calzado, enfocada en calidad, diseño y procesos productivos confiables.
@@ -199,9 +213,18 @@
         <img src="imagenes/zapato2.jpg">
         <img src="imagenes/zapato3.jpg">
         <img src="imagenes/zapato4.jpg">
-
         <button class="prev" onclick="cambiar(-1)">❮</button>
         <button class="next" onclick="cambiar(1)">❯</button>
+    </div>
+
+    <!-- SOBRE NOSOTROS -->
+    <div class="sobre">
+        <h2>Sobre Nosotros</h2>
+        <p>
+            Somos una empresa con experiencia en la manufactura de calzado,
+            comprometida con la calidad, la innovación y el cumplimiento de
+            altos estándares productivos, aportando valor al mercado colombiano.
+        </p>
     </div>
 </section>
 
@@ -237,30 +260,26 @@
             </div>
         </div>
     </div>
+</section>
 
-    <!-- MAPA REAL -->
-<div class="mapa">
-    <h2>Ubicación</h2>
-
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.025970622174!2d-74.10840422552731!3d4.589362242613767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9920cdc5cb5f%3A0xd67feadb792a0eb1!2sDg.%2017C%20Sur%20%2324c-25%2C%20Bogot%C3%A1!5e0!3m2!1ses-419!2sco!4v1768934927268!5m2!1ses-419!2sco"
-        width="100%"
-        height="350"
-        style="border:0; border-radius:12px;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-</div>
-
-
+<!-- FOOTER GLOBAL (SIEMPRE VISIBLE) -->
 <footer>
-    <p>📍 Bogotá - Colombia</p>
+    <p>📍 Dg. 17C Sur #24c-25, Bogotá</p>
     <p>
         📞 <a href="https://wa.me/573005320154" target="_blank">
         WhatsApp: 300 532 0154
         </a>
     </p>
+
+    <div class="mapa">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.025970622174!2d-74.10840422552731!3d4.589362242613767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9920cdc5cb5f%3A0xd67feadb792a0eb1!2sDg.%2017C%20Sur%20%2324c-25%2C%20Bogot%C3%A1!5e0!3m2!1ses-419!2sco!4v1768934927268!5m2!1ses-419!2sco"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+
     <p>© 2026 Manufacturas Karelto SAS</p>
 </footer>
 
@@ -270,14 +289,15 @@
             sec.classList.remove("active");
         });
         document.getElementById(id).classList.add("active");
+        window.scrollTo(0, 0);
     }
 
     let index = 0;
     const fotos = document.querySelectorAll(".carousel img");
 
-    function cambiar(direccion) {
+    function cambiar(dir) {
         fotos[index].classList.remove("active");
-        index = (index + direccion + fotos.length) % fotos.length;
+        index = (index + dir + fotos.length) % fotos.length;
         fotos[index].classList.add("active");
     }
 
