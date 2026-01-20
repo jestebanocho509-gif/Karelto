@@ -4,72 +4,136 @@
     <meta charset="UTF-8">
     <title>Manufacturas Karelto SAS | Calzado Colombiano</title>
 
-    <!-- SEO para Google -->
-    <meta name="description" content="Manufacturas Karelto SAS es una empresa colombiana dedicada a la fabricación de calzado de alta calidad para hombre y trabajo.">
-    <meta name="keywords" content="calzado colombiano, zapatos, botas, manufacturas karelto, fábrica de calzado, Bogotá">
+    <!-- SEO -->
+    <meta name="description" content="Manufacturas Karelto SAS, empresa colombiana dedicada a la fabricación de calzado de alta calidad.">
+    <meta name="keywords" content="calzado colombiano, zapatos, botas, manufacturas karelto">
     <meta name="author" content="Manufacturas Karelto SAS">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
+        * { box-sizing: border-box; }
+
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f5f7fa;
             color: #333;
         }
 
+        /* HEADER */
         header {
-            background-color: #1f2933;
-            color: white;
-            padding: 30px 20px;
+            background-color: #0b1f33;
+            padding: 35px 20px;
             text-align: center;
         }
 
         header h1 {
             margin: 0;
-            font-size: 34px;
+            font-size: 38px;
+            font-style: italic;
+            color: #ff2f92;
+            letter-spacing: 1px;
         }
 
-        header p {
-            margin-top: 10px;
-            font-size: 16px;
-        }
-
+        /* NAV */
         nav {
-            background-color: #0d6efd;
-            padding: 10px;
+            background-color: #1f3a5f;
+            padding: 14px;
             text-align: center;
         }
 
         nav a {
             color: white;
-            margin: 0 15px;
+            margin: 0 25px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
         }
 
-        .contenedor {
-            width: 90%;
+        nav a:hover {
+            color: #ff2f92;
+        }
+
+        /* SECCIONES */
+        section {
+            display: none;
+            padding: 50px 20px;
             max-width: 1200px;
-            margin: 40px auto;
+            margin: auto;
+            animation: fade 0.6s ease;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fade {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h2 {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            color: #0b1f33;
         }
 
+        /* CARRUSEL */
+        .carousel {
+            position: relative;
+            max-width: 850px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
+
+        .carousel img {
+            width: 100%;
+            display: none;
+        }
+
+        .carousel img.active {
+            display: block;
+        }
+
+        .carousel button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(11,31,51,0.7);
+            color: white;
+            border: none;
+            font-size: 22px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .carousel button:hover {
+            background-color: #ff2f92;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* PRODUCTOS */
         .productos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
         }
 
         .producto {
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
             overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .producto:hover {
+            transform: translateY(-6px);
         }
 
         .producto img {
@@ -79,58 +143,47 @@
         }
 
         .producto-info {
-            padding: 15px;
+            padding: 18px;
         }
 
         .producto-info h3 {
-            margin: 0;
+            margin-top: 0;
+            color: #0b1f33;
         }
 
         .precio {
-            color: #0d6efd;
             font-weight: bold;
-            margin-top: 10px;
+            color: #1f3a5f;
         }
 
-        .empresa {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 50px;
-        }
-
-        .contacto {
-            background-color: #1f2933;
-            color: white;
-            padding: 30px;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .whatsapp {
+        .btn {
             display: inline-block;
-            background-color: #25D366;
+            margin-top: 12px;
+            padding: 10px 18px;
+            background-color: #1f3a5f;
             color: white;
-            padding: 15px 25px;
-            border-radius: 30px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background-color: #ff2f92;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #0b1f33;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: #25D366;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 15px;
-        }
-
-        iframe {
-            width: 100%;
-            height: 300px;
-            border: none;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        footer {
-            background-color: #000;
-            color: white;
-            text-align: center;
-            padding: 15px;
         }
     </style>
 </head>
@@ -139,75 +192,95 @@
 
 <header>
     <h1>Manufacturas Karelto SAS</h1>
-    <p>Fabricación de calzado colombiano con altos estándares de calidad</p>
 </header>
 
 <nav>
-    <a href="#productos">Productos</a>
-    <a href="#empresa">Empresa</a>
-    <a href="#contacto">Contacto</a>
+    <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
+    <a href="#" onclick="mostrarSeccion('productos')">Productos</a>
 </nav>
 
-<div class="contenedor" id="productos">
+<!-- INICIO -->
+<section id="inicio" class="active">
+    <h2>Bienvenidos</h2>
+    <p style="text-align:center; max-width:850px; margin:auto;">
+        Manufacturas Karelto SAS es una empresa colombiana dedicada a la fabricación
+        de calzado, enfocada en calidad, diseño y procesos productivos confiables.
+    </p>
+
+    <div class="carousel">
+        <img src="imagenes/zapato1.jpg" class="active">
+        <img src="imagenes/zapato2.jpg">
+        <img src="imagenes/zapato3.jpg">
+        <img src="imagenes/zapato4.jpg">
+
+        <button class="prev" onclick="cambiar(-1)">❮</button>
+        <button class="next" onclick="cambiar(1)">❯</button>
+    </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="productos">
     <h2>Nuestros Productos</h2>
 
     <div class="productos">
         <div class="producto">
-            <img src="imagenes/zapato1.jpg" alt="Zapato casual">
+            <img src="imagenes/zapato1.jpg">
             <div class="producto-info">
-                <h3>Zapato Casual Hombre</h3>
-                <p>Diseño cómodo, resistente y elegante.</p>
+                <h3>Zapato Casual</h3>
+                <p>Diseño cómodo para uso diario.</p>
                 <p class="precio">$180.000 COP</p>
+                <a class="btn">Ver detalle</a>
             </div>
         </div>
 
         <div class="producto">
-            <img src="imagenes/zapato2.jpg" alt="Zapato formal">
+            <img src="imagenes/zapato2.jpg">
             <div class="producto-info">
                 <h3>Zapato Formal</h3>
-                <p>Ideal para uso empresarial y oficina.</p>
+                <p>Elegancia para entorno empresarial.</p>
                 <p class="precio">$220.000 COP</p>
+                <a class="btn">Ver detalle</a>
             </div>
         </div>
 
         <div class="producto">
-            <img src="imagenes/zapato3.jpg" alt="Bota de trabajo">
+            <img src="imagenes/zapato3.jpg">
             <div class="producto-info">
                 <h3>Bota de Trabajo</h3>
-                <p>Alta resistencia y seguridad laboral.</p>
+                <p>Alta resistencia laboral.</p>
                 <p class="precio">$250.000 COP</p>
+                <a class="btn">Ver detalle</a>
             </div>
         </div>
     </div>
-</div>
-
-<div class="contenedor empresa" id="empresa">
-    <h2>Quiénes Somos</h2>
-    <p>
-        Manufacturas Karelto SAS es una empresa colombiana dedicada a la
-        fabricación de calzado para hombre y trabajo, comprometida con la calidad,
-        el diseño y la satisfacción de nuestros clientes.
-    </p>
-</div>
-
-<div class="contacto" id="contacto">
-    <h2>Contáctanos</h2>
-    <p>Bogotá - Colombia</p>
-
-    <!-- CAMBIA EL NÚMERO -->
-    <a class="whatsapp" href="https://wa.me/573001234567" target="_blank">
-        Escríbenos por WhatsApp
-    </a>
-
-    <!-- MAPA (Bogotá) -->
-    <iframe 
-        src="https://www.google.com/maps?q=Bogotá,Colombia&output=embed">
-    </iframe>
-</div>
+</section>
 
 <footer>
-    <p>© 2026 Manufacturas Karelto SAS | Todos los derechos reservados</p>
+    <p>📍 Bogotá - Colombia</p>
+    <p>📞 <a href="https://wa.me/573001234567" target="_blank">Contacto por WhatsApp</a></p>
+    <p>© 2026 Manufacturas Karelto SAS</p>
 </footer>
+
+<script>
+    function mostrarSeccion(id) {
+        document.querySelectorAll("section").forEach(sec => {
+            sec.classList.remove("active");
+        });
+        document.getElementById(id).classList.add("active");
+    }
+
+    // Carrusel
+    let index = 0;
+    const fotos = document.querySelectorAll(".carousel img");
+
+    function cambiar(direccion) {
+        fotos[index].classList.remove("active");
+        index = (index + direccion + fotos.length) % fotos.length;
+        fotos[index].classList.add("active");
+    }
+
+    setInterval(() => cambiar(1), 4000);
+</script>
 
 </body>
 </html>
