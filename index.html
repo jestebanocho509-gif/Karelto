@@ -20,7 +20,6 @@
             color: #333;
         }
 
-        /* HEADER */
         header {
             background-color: #0b1f33;
             padding: 35px 20px;
@@ -35,7 +34,6 @@
             letter-spacing: 1px;
         }
 
-        /* NAV */
         nav {
             background-color: #1f3a5f;
             padding: 14px;
@@ -48,14 +46,12 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 16px;
-            transition: color 0.3s;
         }
 
         nav a:hover {
             color: #ff2f92;
         }
 
-        /* SECCIONES */
         section {
             display: none;
             padding: 50px 20px;
@@ -129,11 +125,6 @@
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.12);
             overflow: hidden;
-            transition: transform 0.3s;
-        }
-
-        .producto:hover {
-            transform: translateY(-6px);
         }
 
         .producto img {
@@ -156,22 +147,18 @@
             color: #1f3a5f;
         }
 
-        .btn {
-            display: inline-block;
-            margin-top: 12px;
-            padding: 10px 18px;
-            background-color: #1f3a5f;
-            color: white;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 14px;
+        /* MAPA */
+        .mapa {
+            margin-top: 40px;
         }
 
-        .btn:hover {
-            background-color: #ff2f92;
+        .mapa iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+            border-radius: 12px;
         }
 
-        /* FOOTER */
         footer {
             background-color: #0b1f33;
             color: white;
@@ -229,7 +216,6 @@
                 <h3>Zapato Casual</h3>
                 <p>Diseño cómodo para uso diario.</p>
                 <p class="precio">$180.000 COP</p>
-                <a class="btn">Ver detalle</a>
             </div>
         </div>
 
@@ -239,7 +225,6 @@
                 <h3>Zapato Formal</h3>
                 <p>Elegancia para entorno empresarial.</p>
                 <p class="precio">$220.000 COP</p>
-                <a class="btn">Ver detalle</a>
             </div>
         </div>
 
@@ -249,15 +234,27 @@
                 <h3>Bota de Trabajo</h3>
                 <p>Alta resistencia laboral.</p>
                 <p class="precio">$250.000 COP</p>
-                <a class="btn">Ver detalle</a>
             </div>
         </div>
+    </div>
+
+    <!-- MAPA REAL -->
+    <div class="mapa">
+        <h2>Ubicación</h2>
+        <iframe 
+            src="https://www.google.com/maps?q=https://maps.app.goo.gl/sph1rjnhJQR2xyyg7&output=embed"
+            loading="lazy">
+        </iframe>
     </div>
 </section>
 
 <footer>
     <p>📍 Bogotá - Colombia</p>
-    <p>📞 <a href="https://wa.me/573001234567" target="_blank">Contacto por WhatsApp</a></p>
+    <p>
+        📞 <a href="https://wa.me/573005320154" target="_blank">
+        WhatsApp: 300 532 0154
+        </a>
+    </p>
     <p>© 2026 Manufacturas Karelto SAS</p>
 </footer>
 
@@ -269,7 +266,6 @@
         document.getElementById(id).classList.add("active");
     }
 
-    // Carrusel
     let index = 0;
     const fotos = document.querySelectorAll(".carousel img");
 
